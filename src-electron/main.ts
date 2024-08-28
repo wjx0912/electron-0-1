@@ -15,8 +15,13 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  console.log("process.env.VITE_DEV_SERVER_URL:", process.env.VITE_DEV_SERVER_URL);
-  mainWindow.loadURL('' + process.env.VITE_DEV_SERVER_URL)
+  if(process.env.VITE_DEV_SERVER_URL) {
+    console.log("process.env.VITE_DEV_SERVER_URL:", process.env.VITE_DEV_SERVER_URL);
+    mainWindow.loadURL('' + process.env.VITE_DEV_SERVER_URL)
+  } else {
+    mainWindow.loadFile('dist/index.html')
+    mainWindow.loadFile(path.join(__dirname, '../dist/index.html'))
+  }
   //mainWindow.loadFile('index.html')
 
   // Open the DevTools.

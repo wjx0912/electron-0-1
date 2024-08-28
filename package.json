@@ -1,11 +1,12 @@
 {
   "name": "electron-vue-vite",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.2.3",
   "main": "./dist-electron/main.js",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
+    "build-all": "vite build && electron-builder",
     "preview": "vite preview"
   },
   "dependencies": {
